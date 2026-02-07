@@ -104,6 +104,50 @@ DELETE /api/tasks/{id}
 
 
 
+\## Database Schema
+
+
+
+\### User Table
+
+
+
+CREATE TABLE users (
+
+&nbsp;   id BIGINT PRIMARY KEY AUTO\_INCREMENT,
+
+&nbsp;   username VARCHAR(100) NOT NULL,
+
+&nbsp;   password VARCHAR(255) NOT NULL
+
+);
+
+
+
+\### Task Table
+
+
+
+CREATE TABLE tasks (
+
+&nbsp;   id BIGINT PRIMARY KEY AUTO\_INCREMENT,
+
+&nbsp;   title VARCHAR(255) NOT NULL,
+
+&nbsp;   description TEXT,
+
+&nbsp;   status VARCHAR(50),
+
+&nbsp;   user\_id BIGINT,
+
+&nbsp;   FOREIGN KEY (user\_id) REFERENCES users(id)
+
+);
+
+
+
+
+
 ---
 
 
